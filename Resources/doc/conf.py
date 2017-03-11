@@ -25,7 +25,28 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sensio.sphinx.refinclude', 'sensio.sphinx.configurationblock', 'sensio.sphinx.phpcode']
+extensions = []
+
+try:
+    import sensio.sphinx.refinclude
+except ImportError:
+    print('sensio.sphinx.refinclude is not available')
+else:
+    extensions += ['sensio.sphinx.refinclude']
+
+try:
+    import sensio.sphinx.configurationblock
+except ImportError:
+    print('sensio.sphinx.configurationblock is not available')
+else:
+    extensions += ['sensio.sphinx.configurationblock']
+
+try:
+    import sensio.sphinx.phpcode
+except ImportError:
+    print('sensio.sphinx.phpcode is not available')
+else:
+    extensions += ['sensio.sphinx.phpcode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
